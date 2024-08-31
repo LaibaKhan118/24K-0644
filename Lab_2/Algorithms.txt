@@ -1,0 +1,114 @@
+Q1. Implement an algorithm for determining if an Nth is a divisor of an n Number (i.e. 2 is a divisor of 6). If so, determine if it’s an even number or odd number as well.
+
+START
+ASK the user to enter the number
+ASK the user to enter the divisor
+SET remainder to (number % divisor)
+IF remainder is eqauls to zero THEN 
+  DISPLAY "It is a divisor"
+  IF (remainder % 2) is equals to 0 THEN
+    DISPLAY "It is an even number
+  ELSE
+    DISPLAY "It is an odd number"
+ELSE
+  DISPLAY "It is not a divisor"
+END
+
+
+
+Q2. Implement an algorithm where the user enters a number, and an appropriate month is displayed.
+
+START
+ASK the user to enter a number between 1 and 12
+IF number = 1 THEN
+  DISPLAY "The month is January."
+ELSE IF number = 2 THEN
+  DISPLAY "The month is February."
+ELSE IF number = 3 THEN
+  DISPLAY "The month is March."
+ELSE IF number = 4 THEN
+  DISPLAY "The month is April."
+ELSE IF number = 5 THEN
+  DISPLAY "The month is May."
+ELSE IF number = 6 THEN
+  DISPLAY "The month is June."
+ELSE IF number = 7 THEN
+  DISPLAY "The month is July."
+ELSE IF number = 8 THEN
+  DISPLAY "The month is August."
+ELSE IF number = 9 THEN
+  DISPLAY "The month is September."
+ELSE IF number = 10 THEN
+  DISPLAY "The month is October."
+ELSE IF number = 11 THEN
+  DISPLAY "The month is November."
+ELSE IF number = 12 THEN
+  DISPLAY "The month is December."
+ELSE
+  DISPLAY "Invalid month number."
+END
+
+
+
+============ OR ==============
+
+Start the program
+Ask the user to enter a number between 1 and 12
+If the number is 1 then display "January"
+Otherwise if the number is 2 then display "February"
+Otherwise if the number is 3 then display "March"
+Otherwise if the number is 4 then display "April"
+Otherwise if the number is 5 then display "May"
+Otherwise if the number is 6 then display "June"
+Otherwise if the number is 7 then display "July"
+Otherwise if the number is 8 then display "August"
+Otherwise if the number is 9 then display "September"
+Otherwise if the number is 10 then display "October"
+Otherwise if the number is 11 then display "November"
+Otherwise if the number is 12 then display "December"
+Otherwise display "Invalid number"
+End the program.
+
+
+Q3. Implement an algorithm for making a simple calculator with all the operators (+,-,*,/,%).
+
+START
+DISPLAY "Select 1 for Addition, 2 for Subtraction, 3 for Multiplication, 4 for Division"
+ASK the user to choose a number for the operation they would like to perform
+IF the number is not between 1 and 4 THEN
+  DISPLAY "INVALID Selection."
+  END
+ELSE
+  ASK the user to enter the first number (a)
+  ASK the user to enter the second number (b)
+  IF the user chose 1 THEN
+    SET c to (a + b)
+    DISPLAY c
+  ELSE IF the user chose 2 THEN
+    SET c to (a - b)
+    DISPLAY c
+  ELSE IF the user chose 3 THEN
+    SET c to (a * b)
+    DISPLAY c
+  ELSE IF the user chose 4 THEN
+    IF (b = 0) THEN
+      DISPLAY "Undefined"
+    ELSE
+      SET c to (a / b)
+      DISPLAY c
+END
+
+==========OR===================
+
+Start the program
+Display "Select 1 for Addition, 2 for Subtraction, 3 for Multiplication, 4 for Division"
+Ask the user to choose a number for the operation they would like to perform.
+If the number is not between 1 and 4 then display "Invalid Selection" and end the program
+Otherwise, Ask the user to enter the first number (a) and the second number (b)
+If the user chose 1 for operation then set c to (a + b) and display c.
+Otherwise, if the user chose 2 for operation then set c to (a - b) and display c.
+Otherwise, if the user chose 3 for operation then set c to (a * b) and display c.
+Otherwise, if the user chose 4 for operation then check if b = 0.
+If it is then Display "Undefined." 
+Otherwise set c to (a / b) and display c.
+End the program.
