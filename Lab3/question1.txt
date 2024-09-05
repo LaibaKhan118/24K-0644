@@ -1,2 +1,0 @@
-Ans:
-Because the added number was out of the range of the variable.
