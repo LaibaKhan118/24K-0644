@@ -1,0 +1,16 @@
+Given Statement:
+x = 5 > 8 ? 10 : 1 != 2 < 5 ? 20 : 30;
+
+Question: Why is the output 30?
+Answer: This how this expression is evaluated:
+1. is 5 > 8 : False (or 0)
+2. move to the 'no' or 'false' part:
+	x = 1 != 2 < 5 ? 20 : 30;
+3. Now, evaluate 1 != 2 < 5
+	i. Due to the precedence of operators in C, we first check if 2 < 5 : it is, so this part returns true (or 1)
+	ii. Now, the statement is
+		x = 1 != 1 ? 20 : 30;
+	iii. Since 1 IS equal to 1, the comparison (1 != 1) returns false.
+4. move to the flase part of the ternary:
+	x = 30;
+Now, when we print the value of x, we get 30.
