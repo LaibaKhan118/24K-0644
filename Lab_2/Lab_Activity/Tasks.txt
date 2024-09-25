@@ -1,0 +1,43 @@
+Q1: There are a number of drawers each containing a pair of socks. Write step-by-step instructions to sort them into either ascending or descending order.
+1. Start
+2. Take the socks from all drawers
+3. Find the biggest sock and put it in the first drawer.
+4. Find the sock smaller than the last one and put it in the next drawer.
+5. Repeat Step 4 until all the socks are placed in a drawer.
+6. End
+
+
+Q2: Input 2 numbers. Add them together. Multiply the resultant number to the second number. Check if this product is even or odd and if it is +ve or -ve.
+
+START
+// Inputs
+INPUT num1
+INPUT num2
+
+// variable declaration and initialization
+SET sum to 0
+SET result to 0
+SET remainder to 0
+
+// Process Steps for addition and multiplication
+SET sum to num1 + num2
+SET result to sum * num2
+
+// Conditional statements for a positive or negative number
+IF result >= 0 THEN
+	PRINT "The number is positive"
+ELSE
+	PRINT "The number is negative"
+
+// Process steps for calculating the remainder
+SET remainder to result mod 2
+
+// Conditional Statements for even or odd
+IF remainder == 0 THEN
+	PRINT "It is an even number"
+ELSE
+	PRINT "It is an odd number"
+
+END
+
+
