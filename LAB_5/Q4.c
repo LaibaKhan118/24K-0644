@@ -12,7 +12,7 @@ int main() {
 			printf("Very Alkaline\n");
 		}
 	}
-	else if (ph = 7) {
+	else if (ph == 7) {
 		printf("Neutral\n");
 	}
 	else if (ph > 2) {
