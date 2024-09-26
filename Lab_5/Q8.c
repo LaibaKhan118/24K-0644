@@ -41,7 +41,14 @@ int main() {
 		return 0;
 	}
 	
-	section = ((section_n == 1) ? 'A' : (section_n == 2) ? 'B' : (section_n == 3) ? 'C' : (section_n == 4) ? 'D' : (section_n == 5) ? 'E' : (section_n == 6) ? 'F' : (section_n == 7) ? 'G' : (section_n == 8) ? 'H' : 'I');
+	section = ((section_n == 1) ? 'A' 
+		  : (section_n == 2) ? 'B' 
+		  : (section_n == 3) ? 'C' 
+		  : (section_n == 4) ? 'D' 
+		  : (section_n == 5) ? 'E' 
+		  : (section_n == 6) ? 'F' 
+		  : (section_n == 7) ? 'G' 
+		  : (section_n == 8) ? 'H' : 'I');
 	
 	time = year - batch;
 	semester = ((time == 0 ? ((type == 1) ? 0 : 1) :
@@ -56,3 +63,17 @@ int main() {
 	printf(" Roll number: %d\n Registration Year: %d\n Section: %c\n Semester: %d\n", roll_n, batch, section, semester);
 	return 0;
 }
+
+
+
+
+// Another way to check the length of the roll number
+/*
+if(roll > 999999){
+        printf("More than 6 digits\n");
+    } else if (roll < 99999) {
+        printf("less than 6");
+    } else{
+        printf("ok");
+    }
+*/
