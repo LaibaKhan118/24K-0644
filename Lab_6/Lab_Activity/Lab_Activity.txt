@@ -1,0 +1,17 @@
+// in for loop we can increment or decrement in its paranthese 
+// however, in while (if required) you can skip that (e.g. user input)
+// do while and while has only one difference, do-while executes code once no matter what the condition is because it checks the condition after executing the code once.
+
+coditional loop: A condition for termination is present in the loop.
+unconditional loop: A condition is not defined. (we can terminate the loop using break statement otherwise it will run infinitly)
+e.g:
+while(1) {
+	printf();
+	if(condition)
+		break;
+}
+
+for(;;){
+	//statements
+break;
+}
