@@ -6,7 +6,7 @@ int main()
     char str[500];
     int p, ch;
     printf("Enter the String:\t");
-    gets(str);
+    scanf("%[^\n]s", str); //found in bok for multi-word string
     printf("Enter the position from where you want to start extracting:\t");
     scanf("%d", &p);
     printf("Enter the number of characters you want to extract:\t");
