@@ -15,7 +15,7 @@ int main() {
     }
     
     for(int i = 0; i < len/2; i++) {
-        if(str[i] = str[len-i-1]){
+        if(str[i] == str[len-i-1]){
             palindrome = 1;
         }
         else{
