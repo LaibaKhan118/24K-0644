@@ -5,7 +5,7 @@ int main()
     char arr[30];
     int a=0,e=0,i=0,o=0,u=0;
     printf("Enter a string:\t");
-    gets(arr);
+    scanf("%[^\n]s", arr);
     int size = sizeof(arr)/sizeof(arr[0]);
     for(int j = 0; j < size; j++) {
     	char c = arr[j];
