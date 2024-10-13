@@ -3,11 +3,10 @@ built-in strlen() or sizeof() function. After length calculation reverse the str
 the same pointers*/
 
 #include <stdio.h>
-#include<string.h>
 int main() {
     char str[500];
     printf("Enter a string:\t");
-    gets(str);
+    scanf("%[^\n]s", str);
     char *ptr = str;
     int len = 0;
     char temp, *start, *end;
