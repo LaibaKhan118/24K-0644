@@ -9,7 +9,7 @@ int main() {
     scanf("%[^\n]s", str);
     char *ptr = str;
     int len = 0;
-    char temp, *start, *end;
+    char temp, *end;
     
     while(*ptr != '\0') {
         len++;
@@ -18,14 +18,14 @@ int main() {
     
     printf("String: %s\nLength: %d\n", str, len);
     
-    start = str;
-    end = str + len - 1;
+    ptr = str;
+    end = ptr + len - 1;
     
-    while(start < end) {
-        temp = *start;
-        *start = *end;
+    while(ptr < end) {
+        temp = *ptr;
+        *ptr = *end;
         *end = temp;
-        start++;
+        ptr++;
         end--;
     }
     
