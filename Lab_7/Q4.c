@@ -5,7 +5,7 @@
 int main() {
     char str[500];
     printf("Enter a string:\t");
-    gets(str);
+    scanf("%[^\n]s", str);
     char *ptr = str;
     int len = 0, palindrome = 0;
     
