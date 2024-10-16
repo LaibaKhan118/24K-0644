@@ -1,3 +1,4 @@
+// 2024 mid A - section B, Q 3
 //  Create a C program to check if poitive integer is deficient, abundant, or perfect. Input number, find divisors, sum the divisors, if sum > number, numbber is bundant, if sum < num, nuber is  deficient, or if num = sum, number is perfect.Display number, class, and divisors. 
 
 #include <stdio.h>
