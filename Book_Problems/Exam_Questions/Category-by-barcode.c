@@ -1,4 +1,5 @@
-//  Assign  categry number to a product by barcode
+// 2022 mid, Q. 1
+//  Assign a category number to a product by barcode
 
 #include <stdio.h>
 
