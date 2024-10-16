@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 int main() {
-    int a_ranks[5], b_ranks[5];
+    int a_ranks[5], b_ranks[5], a_r_freq[15] = {0}, b_r_freq[15] = {0}, a_s_freq[4] = {0}, b_s_freq[4] = {0};
     char a_suit[5], b_suit[5], r = 'N';
     int a_same_s = 0, b_same_s = 0, a_same_r = 0, b_same_r = 0, alice = 0, bob = 0, draw = 0, a_strength = 0, b_strength = 0;
     printf("\n\t\t\tWelcome\n\n");
@@ -14,34 +14,48 @@ int main() {
         for (int i = 0; i < 5; i++) {
             printf("Enter Card Number:\t");
             scanf("%d", &a_ranks[i]);
+            a_r_freq[a_ranks[i]]++;
             printf("Enter the card's suit (h, d, c, s):\t");
             scanf(" %c", &a_suit[i]);
         }
         
         // Flush
-        for (int i = 0; i < 5; i++) {
-            a_same_s = 0;
-            for (int j = 0; j < 5; j++) {
-                if (a_suit[i] == a_suit[j]) {
-                    a_same_s++;
-                }
+        for (int i = 0; a_suit[i] != '\0'; i++) {
+            switch (a_suit[i]) {
+                case 'h':
+                    a_s_freq[0]++; // Increment for 'h'
+                    break;
+                case 'd':
+                    a_s_freq[1]++; // Increment for 'd'
+                    break;
+                case 's':
+                    a_s_freq[2]++; // Increment for 's'
+                    break;
+                case 'c':
+                    a_s_freq[3]++; // Increment for 'c'
+                    break;
+                default:
+                    break; // Ignore other characters
             }
         }
-        
+        for (int i = 0; i < 4; i++) {
+            if (a_s_freq[i] == 5) {
+                a_same_s =1;
+                break;
+            }
+        }
         // pair of 3's
-        for (int i = 0; i < 5; i++) {
-            a_same_r = 0;
-            for (int j = 0; j < 5; j++) {
-                if (a_ranks[i] == a_ranks[j]) {
-                    a_same_r++;
-                }
+        for (int i = 0; i < 15; i++) {
+            if(a_r_freq[i] == 3) {
+                a_same_r = 1; //true
+                break;
             }
         }
         
-        if (a_same_s == 5) {
+        if (a_same_s == 1) {
             a_strength = 1;
         }
-        else if(a_same_r == 3) {
+        else if(a_same_r == 1) {
             a_strength = 2;
         }
         else {
@@ -52,34 +66,48 @@ int main() {
         for (int i = 0; i < 5; i++) {
             printf("Enter Card Number:\t");
             scanf("%d", &b_ranks[i]);
+            b_r_freq[b_ranks[i]]++;
             printf("Enter the card's suit (h, d, c, s):\t");
             scanf(" %c", &b_suit[i]);
         }
         
         // Flush
-        for (int i = 0; i < 5; i++) {
-            b_same_s = 0;
-            for (int j = 0; j < 5; j++) {
-                if (b_suit[i] == b_suit[j]) {
-                    b_same_s++;
-                }
+        for (int i = 0; b_suit[i] != '\0'; i++) {
+            switch (b_suit[i]) {
+                case 'h':
+                    b_s_freq[0]++; // Increment for 'h'
+                    break;
+                case 'd':
+                    b_s_freq[1]++; // Increment for 'd'
+                    break;
+                case 's':
+                    b_s_freq[2]++; // Increment for 's'
+                    break;
+                case 'c':
+                    b_s_freq[3]++; // Increment for 'c'
+                    break;
+                default:
+                    break; // Ignore other characters
             }
         }
-        
+        for (int i = 0; i < 4; i++) {
+            if (b_s_freq[i] == 5) {
+                b_same_s =1;
+                break;
+            }
+        }
         // pair of 3's
-        for (int i = 0; i < 5; i++) {
-            b_same_r = 0;
-            for (int j = 0; j < 5; j++) {
-                if (b_ranks[i] == b_ranks[j]) {
-                    b_same_r++;
-                }
+        for (int i = 0; i < 15; i++) {
+            if(b_r_freq[i] == 3) {
+                b_same_r = 1; //true
+                break;
             }
         }
         
-        if (b_same_s == 5) {
+        if (b_same_s == 1) {
             b_strength = 1;
         }
-        else if(b_same_r == 3) {
+        else if(b_same_r == 1) {
             b_strength = 2;
         }
         else {
@@ -87,11 +115,11 @@ int main() {
         }
         
         // Winner
-        if (a_strength > b_strength){
+        if (a_strength < b_strength){
             printf("Winner is Alice\n");
             alice++;
         }
-        else if (b_strength > a_strength){
+        else if (b_strength < a_strength){
             printf("Winner is Bob\n");
             bob++;
         }
