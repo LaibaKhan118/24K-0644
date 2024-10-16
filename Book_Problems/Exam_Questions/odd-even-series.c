@@ -1,3 +1,4 @@
+// 2024 mid B, Q 3
 // The program should prompt the user to enter the starting and ending numbers for the range, then generate the required sequence, and finally display the numbers stored in the array.
 // 1 3 5 7 9 10 11 13 15 17 18 19
 #include <stdio.h>
