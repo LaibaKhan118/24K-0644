@@ -1,3 +1,4 @@
+// 2024 mid A - section b, Q 2
 //  Create a C program for library managment. This library has only five books available for checkout. Each book can either he borrowed by a reader or returned to its spot on the shelf. But watch out-once a book is checked out, it goes missing until someone brings it back! 
 
 #include <stdio.h>
