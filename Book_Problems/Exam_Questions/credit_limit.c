@@ -1,3 +1,4 @@
+//2024 mid B (section c), Q 2
 //  Create a C program to check if the user has exceeded their credit limit. Input Account number, starting balance of the month, how many items did the user purchased and the cost of each of them (calulate the total), credits applied, and the credit limit. compute new balance = (starting balance+total charge) - total credits. check if the user exceeded limit. if yes, calculate how much it exceeded and display it.
 
 #include <stdio.h>
