@@ -8,7 +8,9 @@ frequency of each element in the array (how many times each number occurs).*/
 
 int main()
 {
+    // Assuming the user will only enter positive numbers
     int arr[10];
+    printf("Instructions: Enter Only positive numbers.\n\n");
     for (int i = 0; i < 10; i++)
     {
         printf("Enter Element %d: ", i + 1);
@@ -39,8 +41,8 @@ int main()
 
     for (int i = 0; i < max; i++)
     {
-        if (freq[i] != 0)
-            printf("%d is repeated %d times\n", i, freq[i]);
+        if (freq[i] > 0)
+            printf("%d is repeated %d time(s)\n", i, freq[i]);
     }
 
     return 0;
@@ -60,7 +62,7 @@ int main()
     }
     printf("\n");
     for (int i = 0; i < 10; i++) {
-        if (freq[i] != 0) {
+        if (freq[i] > 0) {
             printf("%d: %d times\n", i, freq[i]);
         }
     }
