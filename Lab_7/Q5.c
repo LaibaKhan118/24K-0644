@@ -29,7 +29,7 @@ int main()
 
     int freq[max];
     // Initializing Every element with 0
-    for (int i = 0; i < max; i++)
+    for (int i = 0; i <= max; i++)
     {
         freq[i] = 0;
     }
@@ -39,7 +39,7 @@ int main()
         freq[arr[i]]++;
     }
 
-    for (int i = 0; i < max; i++)
+    for (int i = 0; i <= max; i++)
     {
         if (freq[i] > 0)
             printf("%d is repeated %d time(s)\n", i, freq[i]);
@@ -62,7 +62,7 @@ int main()
     }
     printf("\n");
     for (int i = 0; i < 10; i++) {
-        if (freq[i] > 0) {
+        if (freq[i] != 0) {
             printf("%d: %d times\n", i, freq[i]);
         }
     }
