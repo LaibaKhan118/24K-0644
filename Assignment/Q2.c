@@ -6,13 +6,14 @@ slogans provided by the marketing team. This analysis will help identify the mos
 used in their slogans, which can inform future marketing strategies.*/
 
 #include <stdio.h>
+#include <string.h>
 
 void countChar(char arr[]);
 
 int main()
 {
     char slogan[100][100];
-    int n, count;
+    int n;
     printf("Enter Number of slogans: \t");
     scanf("%d", &n);
     for (int i = 0; i < n; i++)
@@ -36,6 +37,7 @@ void countChar(char slogan[])
     int count;
     for (int i = 0; slogan[i] != '\0'; i++)
     {
+        int n = strlen(slogan);
         char ch = slogan[i];
         int already_counted = 0;
 
@@ -51,14 +53,18 @@ void countChar(char slogan[])
         if (!already_counted)
         {
             count = 0;
-            for (int i = 0; slogan[i] != '\0'; i++)
+            for (int j = 0; slogan[j] != '\0'; j++)
             {
-                if (slogan[i] == ch)
+                if (slogan[j] == ch)
                 {
                     count++;
                 }
             }
-            printf("\'%c\': %d, ", ch, count);
+            printf("\'%c\': %d", ch, count);
+            if (i != (n - 1))
+            {
+                printf(", ");
+            }
         }
     }
 }
