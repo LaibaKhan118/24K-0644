@@ -35,8 +35,10 @@ int main()
         int size = strlen(words[i]);
         removed = check_Char(words[i], size);
         removed += removed;
+        if (i != n - 1)
+            printf(", ");
     }
-    printf("]\n");
+    printf(" ]\n");
     printf("Total Removed Characters: %d", removed);
 }
 
@@ -56,6 +58,6 @@ int check_Char(char str[], int n)
             count++;
         }
     }
-    printf("\"%s\", ", arr);
+    printf("\"%s\"", arr);
     return count;
 }
