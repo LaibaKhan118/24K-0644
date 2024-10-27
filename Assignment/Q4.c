@@ -14,10 +14,9 @@ Expected Output: [['bat'], ['nat', 'tan'], ['ate', 'eat', 'tea']]
 
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
-int sum(char str[]);
-int freq(char str[][100], int n, char *target);
-void sort(char str[][100], int n);
+int anagram(const char *arr, const char *arr2);
 int main()
 {
     char str[100][100];
@@ -27,78 +26,69 @@ int main()
     for (int i = 0; i < n; i++)
     {
         printf("Enter code %d:\t", i + 1);
-        scanf(" %s", str[i]);
+        scanf("%s", str[i]);
+        for (int j = 0; str[i][j] != '\0'; j++)
+        {
+            str[i][j] = tolower(str[i][j]);
+        }
     }
 
-    sort(str, n);
+    int grouped[100] = {0};
 
+    printf("[ ");
     for (int i = 0; i < n; i++)
     {
-        int count = freq(str, n, str[i]);
-        char arr[count];
-        for (int j = 0; j < n; j++)
+        if (grouped[i])
         {
-            if (sum(str[i]) == sum(str[j]))
+            continue;
+        }
+        printf("[ \'%s\' ", str[i]);
+        grouped[i] = 1;
+        for (int j = i + 1; j < n; j++)
+        {
+            if (grouped[j] ==  0 && anagram(str[i], str[j]) == 1)
             {
-                strcpy(arr[i], str[i]);
+                printf(", \'%s\' ", str[j]);
+                grouped[j] = 1;
             }
         }
-
-        for (int k = 0; k < count; k++)
-        {
-            printf("%s, ", arr[k]);
-        }
-
-        // if(i==0 || sum(str[i]) == sum(str[i+1]))
-        //     printf("[");
-        // else
-        //     printf("], ");
-        // printf("\'%s\', ", str[i]);
+        printf("]");
+        if (i != n-1)
+            printf(", ");
     }
+    printf(" ]\n");
 
     return 0;
 }
 
-int sum(char str[])
+int anagram(const char *arr, const char *arr2)
 {
-    int sum = 0;
-    for (int i = 0; str[i] != '\0'; i++)
+    if (strlen(arr) != strlen(arr2))
     {
-        sum += (int)str[i];
+        return 0;
     }
-    return sum;
-}
 
-int freq(char str[][100], int n, char *target)
-{
-    int count = 0;
-    for (int i = 0; i < n; i++)
+    int freq[26] = {0}; // size 26 because we have already converted our strings to lowercase
+
+    // frequency of each character in string 1
+    for (int i = 0; arr[i] != '\0'; i++)
     {
-        if (strcmp(str[i], target) == 0)
+        freq[arr[i] - 'a']++;
+    }
+
+    // frequency of each character in string 1
+    for (int i = 0; arr2[i] != '\0'; i++)
+    {
+        freq[arr2[i] - 'a']--;
+    }
+
+    // Check if all frequencies are zero
+    for (int i = 0; i < 26; i++)
+    {
+        if (freq[i] != 0)
         {
-            count++;
+            return 0;
         }
     }
-    return count;
-}
-
-void sort(char str[][100], int n)
-{
-    char temp[100];
-    for (int i = 0; i < n - 1; i++)
-    {
-        int sum_1, sum_2;
-        for (int j = i + 1; j < n; j++)
-        {
-            sum_1 = sum(str[i]);
-            sum_2 = sum(str[j]);
-
-            if (sum_2 < sum_1)
-            {
-                strcpy(temp, str[i]);
-                strcpy(str[i], str[j]);
-                strcpy(str[j], temp);
-            }
-        }
-    }
+    return 1;
 }
