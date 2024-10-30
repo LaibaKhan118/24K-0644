@@ -15,16 +15,19 @@ that the program handles invalid inputs gracefully. Your program must display th
 function the user wants to call.
 */
 #include <stdio.h>
+#include <string.h>
+#include <math.h>
 
-int BinaryToDecimal(int number);
-long long int DecimalToBinary(int number);
-void DecimalToHexadecimal(int number);
-void HexadecimalToDecimal(char hexNumber[]);
-void BinaryToHexadecimal(int number);
-void HexadecimalToBinary(char hexNumber[]);
+long int BinaryToDecimal(long long unsigned int number);
+long long int DecimalToBinary(long int number);
+void DecimalToHexadecimal(long int number);
+long int HexadecimalToDecimal(const char *hexNumber);
+void BinaryToHexadecimal(long long unsigned int number);
+void HexadecimalToBinary(const char *hexNumber);
 int main()
 {
     int opt;
+    long long unsigned int bin;
     long unsigned int num; // Assuming that the numbers inputted are within the range of unsigned int
     char hex[100];         // Assuming that the numbers inputted are under 100 characters
     printf("\t\t\tMenu\t\t\t\n\n");
@@ -41,8 +44,8 @@ int main()
     {
     case 1:
         printf("Enter a Binary number:\t");
-        scanf("%ld", &num);
-        long int dec = BinaryToDecimal(num);
+        scanf("%lld", &bin);
+        long int dec = BinaryToDecimal(bin);
         printf("Decimal Equivalent is:\t%ld", dec);
         break;
 
@@ -67,8 +70,8 @@ int main()
 
     case 5:
         printf("Enter a Binary number:\t");
-        scanf("%ld", &num);
-        BinaryToHexadecimal(num);
+        scanf("%lld", &bin);
+        BinaryToHexadecimal(bin);
         break;
     case 6:
         printf("Enter a Hexadecimal number:\t");
@@ -83,9 +86,9 @@ int main()
     return 0;
 }
 
-int BinaryToDecimal(int number)
+long int BinaryToDecimal(long long unsigned int number)
 {
-    int dec = 0, r, exp = 1;
+    long int dec = 0, r, exp = 1;
     while (number != 0)
     {
         r = number % 10;
@@ -96,7 +99,7 @@ int BinaryToDecimal(int number)
     return dec;
 }
 
-long long int DecimalToBinary(int number)
+long long int DecimalToBinary(long int number)
 {
     long long int bin = 0;
     long int exp = 1;
@@ -110,18 +113,54 @@ long long int DecimalToBinary(int number)
     }
     return bin;
 }
-void DecimalToHexadecimal(int number);
-void HexadecimalToDecimal(char hexNumber[]);
-void BinaryToHexadecimal(int number)
+
+void DecimalToHexadecimal(long int number)
 {
-    long int hex, r, exp = 1;
-    while (number != 0)
-    {
-        r = number % 10;
-        hex += (r * exp);
-        number /= 10;
-        exp *= 2;
-    }
-    printf("Hexadecimal Equivalent is:\t%lx", hex);
+    long long int bin = DecimalToBinary(number);
+    long int hex = BinaryToDecimal(bin);
+    printf("Hexadecimal Equivalent is:\t%X", hex);
 }
-void HexadecimalToBinary(char hexNumber[]);
+
+long int HexadecimalToDecimal(const char *hexNumber)
+{
+    long int num = 0;
+    int dig = 0;
+    int size = strlen(hexNumber);
+    int start = (hexNumber[1] == 'x' || hexNumber[1] == 'X') ? 2 : 0;
+    for (int i = size - 1; i >= start; i--)
+    {
+        if (hexNumber[i] >= '0' && hexNumber[i] <= '9')
+        {
+            dig = (hexNumber[i] - '0');
+        }
+        else if (hexNumber[i] >= 'A' && hexNumber[i] <= 'F')
+        {
+            dig = (hexNumber[i] - 'A' + 10);
+        }
+        else if (hexNumber[i] >= 'a' && hexNumber[i] <= 'f')
+        {
+            dig = (hexNumber[i] - 'a' + 10);
+        }
+        else
+        {
+            printf("Invalid Input\n");
+            return;
+        }
+        num += dig * pow(16, size - 1 - i);
+    }
+    printf("Decimal Equivalent: %ld", num);
+    return num;
+}
+
+void BinaryToHexadecimal(long long unsigned int number)
+{
+    long int hex = BinaryToDecimal(number);
+    printf("Hexadecimal Equivalent is:\t%X", hex);
+}
+
+void HexadecimalToBinary(const char *hexNumber)
+{
+    long int dec = HexadecimalToDecimal(hexNumber);
+    long long int bin = DecimalToBinary(dec);
+    printf("Binary Equivalent:\t%lld", dec);
+}
