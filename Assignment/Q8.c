@@ -28,8 +28,8 @@ int main()
 {
     int opt;
     long long unsigned int bin;
-    long unsigned int num; // Assuming that the numbers inputted are within the range of unsigned int
-    char hex[100];         // Assuming that the numbers inputted are under 100 characters
+    long unsigned int num;
+    char hex[100]; // Assuming that the numbers inputted are under 100 characters
     printf("\t\t\tMenu\t\t\t\n\n");
     printf("1. Binary To Decimal\n");
     printf("2. Decimal To Binary\n");
@@ -65,7 +65,8 @@ int main()
     case 4:
         printf("Enter a Hexadecimal number:\t");
         scanf("%s", &hex);
-        HexadecimalToDecimal(hex);
+        long int number = HexadecimalToDecimal(hex);
+        printf("Decimal Equivalent: %ld", number);
         break;
 
     case 5:
@@ -144,11 +145,10 @@ long int HexadecimalToDecimal(const char *hexNumber)
         else
         {
             printf("Invalid Input\n");
-            return;
         }
         num += dig * pow(16, size - 1 - i);
     }
-    printf("Decimal Equivalent: %ld", num);
+
     return num;
 }
 
@@ -161,6 +161,6 @@ void BinaryToHexadecimal(long long unsigned int number)
 void HexadecimalToBinary(const char *hexNumber)
 {
     long int dec = HexadecimalToDecimal(hexNumber);
-    long long int bin = DecimalToBinary(dec);
-    printf("Binary Equivalent:\t%lld", dec);
+    long long int binary = DecimalToBinary(dec);
+    printf("Binary Equivalent:\t%lld", binary);
 }
