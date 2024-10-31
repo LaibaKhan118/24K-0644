@@ -25,16 +25,9 @@ int main() {
 
 void palindrome(char str[]) {
     int len = strlen(str);
-    int flag = 1;
-    for (int i = 0; i < len/2; i++)
-    {
-        if (str[i] != str[len - 1 - i])
-        {
-            flag = 0;
-            break;
-        }
-    }
-    if(flag == 1) {
+    char str2[len];
+    strcpy(str2, str); // making a copy, so our original array does not change if it is not a palindrome
+    if(strcmp(str, strrev(str2)) == 0) {
         printf("%s is a Palindrome\n", str);
     }
     else {
