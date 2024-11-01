@@ -32,6 +32,6 @@ int main()
             sec_small = arr[i];
         }
     }
-    printf("The Second Smallest Element in th Array is: %d", sec_small);
+    printf("The Second Smallest Element in the Array is: %d", sec_small);
     return 0;
 }
