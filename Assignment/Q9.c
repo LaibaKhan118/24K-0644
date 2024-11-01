@@ -1,4 +1,4 @@
-w#include <stdio.h>
+#include <stdio.h>
 #include <ctype.h>
 #define size 5
 
