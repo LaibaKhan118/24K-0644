@@ -1,4 +1,4 @@
-#include <stdio.h>
+w#include <stdio.h>
 #include <ctype.h>
 #define size 5
 
@@ -10,6 +10,7 @@ int main()
 {
     printf("How to play:\nEnter W to move up\nEnter S to move down\nEnter A to move left\nEnter D to move right\nEnter Q to Quit\n");
     printf("Instructions: Move up, down, left or right to collect items \'I\' and avoid obstacles \'X\'. Collect all three Items to win.\n");
+    
     char grid[size][size] = {
         {' ', ' ', 'I', 'X', ' '},
         {' ', 'X', ' ', ' ', ' '},
@@ -73,20 +74,23 @@ void move_player(char grid[size][size], char move) {
         default:
             return;
      }
-     if(n_row < 0 || n_row >= size || n_col < 0 || n_col >= size) {
+    
+     if (n_row < 0 || n_row >= size || n_col < 0 || n_col >= size) {
          printf("No space to move!\n\n");
          return;
      }
-     if(grid[n_row][n_col] == 'X') {
-         printf("Can't Move, Obstacle Ahead.\n\n");         return;
+     if (grid[n_row][n_col] == 'X') {
+         printf("Can't Move, Obstacle Ahead.\n\n");         
+         return;
      }
-    if(grid[n_row][n_col] == 'I') {
+     if (grid[n_row][n_col] == 'I') {
          printf("Item Collected!\n");         
          score++;
          printf("Your current score is %d\n\n", score);
-    }
-    grid[player_row][player_col] = ' ';
-    player_row = n_row;
-    player_col = n_col;
-    grid[player_row][player_col] = 'P';
+     }
+    
+     grid[player_row][player_col] = ' ';
+     player_row = n_row;
+     player_col = n_col;
+     grid[player_row][player_col] = 'P';
 }
