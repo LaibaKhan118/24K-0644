@@ -20,7 +20,7 @@ int check_Char(char arr[], int n);
 int main()
 {
     char words[100][100];
-    int n, removed;
+    int n, total_removed = 0;
     printf("Enter Number of words: \t");
     scanf("%d", &n);
     for (int i = 0; i < n; i++)
@@ -33,13 +33,13 @@ int main()
     for (int i = 0; i < n; i++)
     {
         int size = strlen(words[i]);
-        removed = check_Char(words[i], size);
-        removed += removed;
+        int removed = check_Char(words[i], size);
+        total_removed += removed;
         if (i != n - 1)
             printf(", ");
     }
     printf(" ]\n");
-    printf("Total Removed Characters: %d", removed);
+    printf("Total Removed Characters: %d", total_removed);
 }
 
 int check_Char(char str[], int n)
