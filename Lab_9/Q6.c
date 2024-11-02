@@ -4,8 +4,7 @@ user.*/
 
 #include <stdio.h>
 
-int min(int arr[], int size);
-int max(int arr[], int size);
+void min_max(int arr[], int size);
 int main()
 {
     int arr[100], n;
@@ -13,29 +12,24 @@ int main()
     scanf("%d", &n);
     for (int i = 0; i < n; i++)
     {
-        printf("Enter Element %d:\t", i+1);
-        scanf("%d",&arr[i]);
+        printf("Enter Element %d:\t", i + 1);
+        scanf("%d", &arr[i]);
     }
-    int smallest = min(arr, n);
-    int greatest = max(arr, n);
-    printf("\nThe Maximum Element is %d\n", greatest);
-    printf("The Minimum Element is %d\n", smallest);
+    min_max(arr, n);
     return 0;
 }
-int min(int arr[], int size)
+void min_max(int arr[], int size)
 {
     int small = arr[0];
     for (int i = 1; i < size; i++)
     {
-        if(arr[i]<small){
+        if (arr[i] < small)
+        {
             small = arr[i];
         }
     }
-    return small;
-}
+    printf("\nThe Minimum Element is %d\n", small);
 
-int max(int arr[], int size)
-{
     int large = arr[0];
     for (int i = 1; i < size; i++)
     {
@@ -44,5 +38,5 @@ int max(int arr[], int size)
             large = arr[i];
         }
     }
-    return large;
+    printf("The Maximum Element is %d\n", large);
 }
