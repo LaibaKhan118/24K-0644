@@ -17,7 +17,7 @@ int main() {
     printf("\n");
     for (int i = 0; i < 5; i++)
     {
-        palindrome(str[i]);
+        palindrome(strlwr(str[i]));
     }
     
     return 0;
