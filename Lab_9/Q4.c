@@ -4,59 +4,53 @@ numbers and an operation choice as input, and then use the function to perform t
 
 #include <stdio.h>
 
-float add(float a, float b);
-float subtract(float a, float b);
-float multiply(float a, float b);
-float divide(float a, float b);
+void calculate(float a, float b, char op);
 
-int main() {
-    int c;
-    float a, b;
+int main()
+{
+    float num1, num2;
+    char operation;
     float num;
-    printf("\tMenu\n");
-    printf("1. Add\n2. Subtract\n3. Multiply\n4. Divide\n\n");
-    printf("Choose an option:\t");
-    scanf("%d", &c);
+
     printf("Enter Number 1:\t");
-    scanf("%f", &a);
+    scanf("%f", &num1);
     printf("Enter Number 2:\t");
-    scanf("%f", &b);
-    switch(c) {
-        case 1:
-            num = add(a, b);
-            printf("Sum is %.2f", num);
-            break;
-        case 2:
-            num = subtract(a, b);
-            printf("Sum is %.2f", num);
-            break;
-        case 3:
-            num = multiply(a, b);
-            printf("Sum is %.2f", num);
-            break;
-        case 4:
-            if(b == 0) {
-                printf("Undefined\n");
-            }
-            else {
-                num = divide(a, b);
-                printf("Sum is %.2f", num);
-            }
-            break;
-        default:
-            printf("Invalid Menu Option.\n");
-    }
+    scanf("%f", &num2);
+    printf("Select an operation to perform (+, -, *, /):\t");
+    scanf(" %c", &operation);
+
+    calculate(num1, num2, operation);
+    return 0;
 }
 
-float add(float a, float b) {
-    return a+b;
-}
-float subtract(float a, float b){
-    return a-b;
-}
-float multiply(float a, float b) {
-    return a*b;
-}
-float divide(float a, float b){
-    return a/b;
+void calculate(float a, float b, char op)
+{
+    switch (op)
+    {
+    case '+':
+        printf("Sum is %.2f", a + b);
+        break;
+
+    case '-':
+        printf("Difference is %.2f", a - b);
+        break;
+
+    case '*':
+        printf("Product is %.2f", a * b);
+        break;
+
+    case '/':
+        if (b == 0)
+        {
+            printf("Undefined\n");
+        }
+        else
+        {
+            printf("Division is %.2f", a / b);
+        }
+        break;
+
+    default:
+        printf("Invalid Operation Symbol.\n");
+    }
 }
