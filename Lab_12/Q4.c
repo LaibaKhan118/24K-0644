@@ -11,20 +11,25 @@ int main()
 {
     int N;
     char *ptr, name[100];
-    printf("Enter the total number of characters in your name (first+last): ");
+    printf("Enter the total number of characters in your name (first+last with the space): ");
     scanf("%d", &N);
-    N += 2; // 2 more for the null terminator and the space between first nad last name
-    printf("Enter Your Name: ");
-    scanf(" %[^\n]s", name);
-    ptr = (char *)calloc(N, 1);
+
+    ptr = (char *)malloc(N, 1);
     if (ptr == NULL)
     {
         printf("Cannot Allocate memory\n");
         return 1;
     }
-    
+
+    printf("Enter Your Name: ");
+    getchar();
+    fgets(name, sizeof(name), stdin);
+    name[strcspn(name, "\n")] = '\0';
+
     strncpy(ptr, name, N);
+
     printf("Dynamic Array: %s\n", ptr);
+
     free(ptr);
     return 0;
 }
