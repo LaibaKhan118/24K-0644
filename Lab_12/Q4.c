@@ -14,7 +14,7 @@ int main()
     printf("Enter the total number of characters in your name (first+last with the space): ");
     scanf("%d", &N);
 
-    ptr = (char *)malloc(N, 1);
+    ptr = (char *)malloc(N * sizeof(char));
     if (ptr == NULL)
     {
         printf("Cannot Allocate memory\n");
